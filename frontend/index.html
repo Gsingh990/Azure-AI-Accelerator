@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Azure AI Accelerator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Azure AI Accelerator</h1>
+      <form id="deploy-form">
+        <div class="row">
+          <label>Name/prefix</label>
+          <input name="name" placeholder="aiexample" required />
+        </div>
+        <div class="row">
+          <label>Environment</label>
+          <select name="environment">
+            <option value="dev">dev</option>
+            <option value="test">test</option>
+            <option value="prod">prod</option>
+          </select>
+        </div>
+        <div class="row">
+          <label>Region</label>
+          <input name="location" placeholder="eastus" required />
+        </div>
+        <fieldset>
+          <legend>AI Services</legend>
+          <label><input type="checkbox" name="ai_foundry" checked /> Azure AI Foundry (Hub + Project)</label>
+          <label><input type="checkbox" name="openai" checked /> Azure OpenAI</label>
+        </fieldset>
+        <fieldset>
+          <legend>Model Provider</legend>
+          <div class="row">
+            <label>Provider</label>
+            <select name="provider">
+              <option value="azure-openai" selected>Azure OpenAI</option>
+              <option value="mistral">Mistral (future)</option>
+              <option value="meta-llama">Meta Llama (future)</option>
+              <option value="cohere">Cohere (future)</option>
+            </select>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>OpenAI Deployment (optional)</legend>
+          <div class="row">
+            <label>Model</label>
+            <select name="openai_model">
+              <option value="gpt-4o">gpt-4o</option>
+              <option value="gpt-4o-mini">gpt-4o-mini</option>
+              <option value="text-embedding-3-large">text-embedding-3-large</option>
+            </select>
+          </div>
+          <div class="row">
+            <label>Version</label>
+            <input name="openai_version" value="2024-05-01" />
+          </div>
+        </fieldset>
+        <div class="row">
+          <label><input type="checkbox" name="enable_app_hosting" /> Provision App Service for UI/API</label>
+        </div>
+        <div class="actions">
+          <button type="button" id="plan">Plan</button>
+          <button type="submit">Apply</button>
+        </div>
+      </form>
+      <pre id="output"></pre>
+    </main>
+    <script src="app.js"></script>
+  </body>
+  </html>

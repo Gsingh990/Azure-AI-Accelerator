@@ -1,0 +1,4 @@
+name     = "aiexample"
+location = "eastus"
+tags = { environment = "test" owner = "ai-platform" }
+enable_app_hosting = false
